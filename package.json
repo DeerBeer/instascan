@@ -1,7 +1,7 @@
 {
-  "name": "instascan",
+  "name": "qr-instascan",
   "version": "1.0.0",
-  "description": "Webcam-driven QR code scanner.",
+  "description": "Fork of the Webcam-driven QR code scanner.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,7 +12,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/schmich/instascan.git"
+    "url": "git+https://github.com/DeerBeer/instascan.git"
   },
   "keywords": [
     "qr",
@@ -24,12 +24,12 @@
     "webcam",
     "realtime"
   ],
-  "author": "Chris Schmich <schmch@gmail.com>",
+  "author": "Laslo Horvat <laslo.horvat@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/schmich/instascan/issues"
+    "url": "https://github.com/DeerBeer/instascan/issues"
   },
-  "homepage": "https://github.com/schmich/instascan",
+  "homepage": "https://github.com/DeerBeer/instascan",
   "devDependencies": {
     "babel-plugin-syntax-async-functions": "^6.8.0",
     "babel-plugin-transform-regenerator": "^6.9.0",

@@ -1,5 +1,5 @@
 # ![Instascan](https://raw.githubusercontent.com/schmich/instascan/master/assets/qr.png) Instascan
-Real-time webcam-driven HTML5 QR code scanner. [Try the live demo](https://schmich.github.io/instascan/).
+This is FORK of the original Instascan. Reason for forking is because we needed code on master and had issues with pulling from git in our meteor app, so we decided to go with fork and create npm library
 
 ## Installing
 
@@ -11,48 +11,21 @@ Real-time webcam-driven HTML5 QR code scanner. [Try the live demo](https://schmi
 
 ```javascript
 const Instascan = require('instascan');
-```
+//preview is video element
+let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+scanner.addListener('scan', (content) => {
+  console.log(content);
+});
+Instascan.Camera.getCameras().then((cameras) => {
+if (cameras.length > 0) {
+  scanner.start(cameras[0]);
+} else {
+  console.error('No cameras found.');
+}
+}).catch((e) => {
+  console.error(e);
+});
 
-### Bower
-
-Pending. [Drop a note](https://github.com/schmich/instascan/issues/31) if you need Bower support.
-
-### Minified
-
-Copy `instascan.min.js` from the [releases](https://github.com/schmich/instascan/releases) page and load with:
-
-```html
-<script type="text/javascript" src="instascan.min.js"></script>
-```
-
-## Example
-
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Instascan</title>
-    <script type="text/javascript" src="instascan.min.js"></script>
-  </head>
-  <body>
-    <video id="preview"></video>
-    <script type="text/javascript">
-      let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
-      scanner.addListener('scan', function (content) {
-        console.log(content);
-      });
-      Instascan.Camera.getCameras().then(function (cameras) {
-        if (cameras.length > 0) {
-          scanner.start(cameras[0]);
-        } else {
-          console.error('No cameras found.');
-        }
-      }).catch(function (e) {
-        console.error(e);
-      });
-    </script>
-  </body>
-</html>
 ```
 
 ## API
